@@ -1,37 +1,40 @@
 import React, { useState } from "react";
 import { Slider } from "@rmwc/slider";
 import "@rmwc/slider/styles";
+import styles from "./components/styling.module.css";
 
 export const Carport = () => {
-  const [height, setHeight] = useState(50);
-  const [width, setWidth] = useState(100);
+  const [length, setLength] = useState(5850);
+  const [width, setWidth] = useState(3500);
 
-  //get the value from the slider event to set as height
-  const heighInput = (event) => {
-    setHeight(event.detail.value);
+  const lengthInput = (event) => {
+    setLength(event.detail.value);
   };
 
-  //get the value from the slider event to set as width
   const widthInput = (event) => {
     setWidth(event.detail.value);
   };
 
   return (
     <div>
+
+    </div>
+
+    <div>
       <div class="row">
         <div class="column">
-          <h3>Height</h3>
+          <p className={styles.title1}>Length</p>
         </div>
-        <div class="column" style={{ width: "30%" }}>
-          <Slider discrete="true" min={50} max={150} onInput={heighInput} />
+        <div class="column" className={styles.sliders}>
+          <Slider discrete="true" min={5850} max={8000} onInput={lengthInput} />
         </div>
       </div>
       <div class="row">
         <div class="column">
-          <h3>Width</h3>
+          <p className={styles.title1}>Width</p>
         </div>
-        <div class="column" style={{ width: "30%" }}>
-          <Slider discrete="true" min={100} max={300} onInput={widthInput} />
+        <div class="column" className={styles.sliders}>
+          <Slider discrete="true" min={3500} max={6500} onInput={widthInput} />
         </div>
       </div>
     </div>
