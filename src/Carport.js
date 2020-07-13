@@ -17,10 +17,6 @@ export const Carport = () => {
 
   return (
     <div>
-
-    </div>
-
-    <div>
       <div class="row">
         <div class="column">
           <p className={styles.title1}>Length</p>
