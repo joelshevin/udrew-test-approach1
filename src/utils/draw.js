@@ -1,15 +1,16 @@
 import React, { useContext } from "react";
 import { DimensionContext } from "../Carport";
+import { DrawRafter } from "./DrawRafter";
 
 export const Draw = (length, width) => {
-  let numberOfx2Purlins = length / 1200;
-  let totalLengthOfx2Purlins = numberOfx2Purlins * 1200;
-  let lengthOfx1Purlin = (length - totalLengthOfx2Purlins) / 2;
-  let newRafterLocation1 = width / 2;
+  const rafters = 2;
 
+  if (width > 3500) {
+    rafters = 3;
+  }
   return {
     length: length,
     width: width,
-    newRafterLocation1: newRafterLocation1,
+    rafters: rafters,
   };
 };

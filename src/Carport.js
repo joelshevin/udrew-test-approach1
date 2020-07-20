@@ -2,12 +2,18 @@ import React, { useState, useMemo } from "react";
 import { Slider } from "@rmwc/slider";
 import "@rmwc/slider/styles";
 import styles from "./components/styling.module.css";
-import { Draw } from "./utils/draw";
-import { DrawRafter } from "./utils/drawRafter";
-import { Rafter } from "./components/Rafters";
-import { Beam } from "./components/Beam";
+import { Draw } from "./utils/Draw";
+import { DrawRafter } from "./utils/DrawRafter";
+import Rafter from "./components/Rafter";
+import Beam from "./components/Beam";
+import { DrawPurlin } from "./utils/DrawPurlin";
+import { Purlin } from "./components/Purlin";
 
-export const DimensionContext = React.createContext({ length: 0, width: 0 });
+export const DimensionContext = React.createContext({
+  length: 0,
+  width: 0,
+  newRafterLocation: 0,
+});
 
 export const Carport = () => {
   const [length, setLength] = useState(5850);
@@ -23,19 +29,16 @@ export const Carport = () => {
   };
 
   const memoizedParams = useMemo(() => Draw(length, width), [length, width]);
-  const memoizedParams1 = useMemo(() => DrawRafter(width), [width]);
 
   return (
     <div>
       <div class="container" id="svgcontainter">
         <DimensionContext.Provider value={memoizedParams}>
           <svg width="650" height="810">
-            <Beam bPosition="0" />
-            {/*somestuff*/}
-            <Beam bPosition={length - 100} />
-            <Rafter rPosition="0" />
-            <Rafter rPosition={memoizedParams1.newRafterLocation1 - 100} />
-            <Rafter rPosition={width - 100} />
+            <Beam bPosition={0} />
+            {/*<Rafter rPosition={0} />
+            <Rafter rPosition={width - 100} />*/}
+            <Beam bPosition={length} />
           </svg>
         </DimensionContext.Provider>
       </div>

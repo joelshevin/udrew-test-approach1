@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import { DimensionContext } from "../Carport";
 
-export const Rafter = ({ rPosition }) => {
+const Rafter = (props) => {
   const dimensions = useContext(DimensionContext);
   const length = dimensions.length / 10;
+
   return (
     <>
-      <svg height="800" width="10" x={rPosition / 10}>
+      <svg height="800" width="10" x={props.rPosition / 10}>
         <rect
           height={length}
           width="10"
@@ -18,3 +19,5 @@ export const Rafter = ({ rPosition }) => {
     </>
   );
 };
+
+export default Rafter;
