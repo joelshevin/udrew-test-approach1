@@ -3,6 +3,7 @@ import { Slider } from "@rmwc/slider";
 import "@rmwc/slider/styles";
 import styles from "./components/styling.module.css";
 import { Draw } from "./utils/draw";
+import { DrawRafter } from "./utils/drawRafter";
 import { Rafter } from "./components/Rafters";
 import { Beam } from "./components/Beam";
 
@@ -22,6 +23,7 @@ export const Carport = () => {
   };
 
   const memoizedParams = useMemo(() => Draw(length, width), [length, width]);
+  const memoizedParams1 = useMemo(() => DrawRafter(width), [width]);
 
   return (
     <div>
@@ -32,6 +34,7 @@ export const Carport = () => {
             {/*somestuff*/}
             <Beam bPosition={length - 100} />
             <Rafter rPosition="0" />
+            <Rafter rPosition={memoizedParams1.newRafterLocation1 - 100} />
             <Rafter rPosition={width - 100} />
           </svg>
         </DimensionContext.Provider>
