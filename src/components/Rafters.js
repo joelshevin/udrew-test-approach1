@@ -1,17 +1,17 @@
 import React, { useContext } from "react";
 import { DimensionContext } from "../Carport";
 
-export const Beam = ({ bPosition }) => {
+export const Rafter = ({ rPosition }) => {
   const dimensions = useContext(DimensionContext);
-  const width = dimensions.width / 10;
+  const length = dimensions.length / 10;
   return (
     <>
-      <svg height="10" width="650" y={bPosition / 10}>
+      <svg height="800" width="10" x={rPosition / 10}>
         <rect
-          height="10"
+          height={length}
+          width="10"
           stroke="black"
-          width={width}
-          strokeWidth="1"
+          stroke-width="1"
           fill="white"
         />
       </svg>
