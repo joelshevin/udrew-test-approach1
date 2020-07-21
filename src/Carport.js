@@ -3,16 +3,14 @@ import { Slider } from "@rmwc/slider";
 import "@rmwc/slider/styles";
 import styles from "./components/styling.module.css";
 import { Draw } from "./utils/Draw";
-import { DrawRafter } from "./utils/DrawRafter";
+import { CalculatePurlins } from "./utils/CalculatePurlins";
+import { DrawPurlin } from "./utils/DrawPurlin";
 import Rafter from "./components/Rafter";
 import Beam from "./components/Beam";
-import { DrawPurlin } from "./utils/DrawPurlin";
-import { Purlin } from "./components/Purlin";
 
 export const DimensionContext = React.createContext({
   length: 0,
   width: 0,
-  newRafterLocation: 0,
 });
 
 export const Carport = () => {
@@ -28,6 +26,10 @@ export const Carport = () => {
     setWidth(event.detail.value);
   };
 
+  const { initialLength, noOfPurlins } = CalculatePurlins(length);
+  console.log(initialLength);
+  console.log(noOfPurlins);
+
   const memoizedParams = useMemo(() => Draw(length, width), [length, width]);
 
   return (
@@ -36,8 +38,14 @@ export const Carport = () => {
         <DimensionContext.Provider value={memoizedParams}>
           <svg width="650" height="810">
             <Beam bPosition={0} />
-            {/*<Rafter rPosition={0} />
-            <Rafter rPosition={width - 100} />*/}
+            <Rafter rPosition={0} />
+            {width > 3500 && <Rafter rPosition={width / 2 - 50} />}
+            <Rafter rPosition={width - 100} />
+            <DrawPurlin
+              noOfPurlins={noOfPurlins}
+              initialLength={initialLength}
+              width={width}
+            />
             <Beam bPosition={length} />
           </svg>
         </DimensionContext.Provider>

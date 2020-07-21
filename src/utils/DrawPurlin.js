@@ -1,11 +1,21 @@
 import React, { useContext } from "react";
-import { DimensionContext } from "../Carport";
+import { Purlin } from "../components/Purlin";
 
-export const DrawPurlin = (length) => {
-  let numberOfx2Purlins = length / 1200;
-  let totalLengthOfx2Purlins = numberOfx2Purlins * 1200;
-  let lengthOfx1Purlin = (length - totalLengthOfx2Purlins) / 2;
-  let x2PurlinsToDraw = numberOfx2Purlins + 1;
+export const DrawPurlin = ({ noOfPurlins, initialLength, width }) => {
+  let lengthArray = [];
 
-  //create an an array with elements equal to x2Purlins to draw and then start drawing one by one adding 1200
+  for (let i = 0; i <= noOfPurlins; i++) {
+    if (i == 0) {
+      lengthArray.push(initialLength);
+    } else {
+      lengthArray.push(lengthArray[i - 1] + 1200);
+    }
+  }
+  return (
+    <>
+      {lengthArray.map((length, index) => (
+        <Purlin key={index} yPosition={length} width={width} />
+      ))}
+    </>
+  );
 };
