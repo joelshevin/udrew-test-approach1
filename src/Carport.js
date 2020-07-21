@@ -27,8 +27,8 @@ export const Carport = () => {
   };
 
   const { initialLength, noOfPurlins } = CalculatePurlins(length);
-  console.log(initialLength);
-  console.log(noOfPurlins);
+  //console.log(initialLength);
+  //console.log(noOfPurlins);
 
   const memoizedParams = useMemo(() => Draw(length, width), [length, width]);
 

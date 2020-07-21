@@ -2,18 +2,18 @@ import React, { useContext } from "react";
 import { Purlin } from "../components/Purlin";
 
 export const DrawPurlin = ({ noOfPurlins, initialLength, width }) => {
-  let lengthArray = [];
+  let lengths = [];
 
   for (let i = 0; i <= noOfPurlins; i++) {
     if (i == 0) {
-      lengthArray.push(initialLength);
+      lengths.push(initialLength);
     } else {
-      lengthArray.push(lengthArray[i - 1] + 1200);
+      lengths.push(lengths[i - 1] + 1200);
     }
   }
   return (
     <>
-      {lengthArray.map((length, index) => (
+      {lengths.map((length, index) => (
         <Purlin key={index} yPosition={length} width={width} />
       ))}
     </>
