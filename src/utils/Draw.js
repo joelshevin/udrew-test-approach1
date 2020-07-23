@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { DimensionContext } from "../Carport";
+import React from "react";
 
 export const Draw = (length, width) => {
   return {

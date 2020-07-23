@@ -1,3 +1,5 @@
+import styles from "./Beam.module.css";
+
 import React, { useContext } from "react";
 import { DimensionContext } from "../Carport";
 
@@ -7,15 +9,7 @@ const Beam = (props) => {
 
   return (
     <>
-      <svg height="10" width="650" y={props.bPosition / 10}>
-        <rect
-          height="10"
-          stroke="black"
-          width={width}
-          strokeWidth="1"
-          fill="white"
-        />
-      </svg>
+      <rect className={styles.beam} y={props.beamPosition / 10} width={width} />
     </>
   );
 };

@@ -2,12 +2,13 @@ import React, { useContext } from "react";
 
 export const CalculatePurlins = (length) => {
   let numberOfx2Purlins = length / 1200;
-  let totalLengthOfx2Purlins = numberOfx2Purlins * 1200;
   let lengthOfx1Purlin = (length % 1200) / 2;
   let x2PurlinsToDraw = numberOfx2Purlins;
 
-  //console.log(lengthOfx1Purlin);
-  //console.log(parseInt(x2PurlinsToDraw));
+  if (lengthOfx1Purlin == 0) {
+    lengthOfx1Purlin = 0;
+    x2PurlinsToDraw = x2PurlinsToDraw - 1;
+  }
 
   return {
     initialLength: lengthOfx1Purlin,

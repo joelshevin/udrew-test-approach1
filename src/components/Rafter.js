@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import styles from "./Rafter.module.css";
 import { DimensionContext } from "../Carport";
 
 const Rafter = (props) => {
@@ -7,15 +8,11 @@ const Rafter = (props) => {
 
   return (
     <>
-      <svg height="800" width="10" x={props.rPosition / 10}>
-        <rect
-          height={length}
-          width="10"
-          stroke="black"
-          stroke-width="1"
-          fill="white"
-        />
-      </svg>
+      <rect
+        className={styles.rafter}
+        height={length}
+        x={props.rafterPosition / 10}
+      />
     </>
   );
 };
