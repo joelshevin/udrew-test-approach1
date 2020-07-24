@@ -4,14 +4,16 @@ import Column from "./Column";
 import styles from "./Canvas.module.css";
 import Material from "./Material";
 import BeamScale from "./BeamScale";
+import RafterMeasurement from "./RafterMeasurement";
+import BeamMeasurement from "./BeamMeasurement";
+import PurlinScalePlacement from "./PurlinScalePlacement";
+import RafterScale from "./RafterScale";
 
 import React, { useContext } from "react";
 import { DimensionContext } from "../Carport";
 import { DrawPurlin } from "./DrawPurlin";
 import { CalculatePurlins } from "../utils/CalculatePurlins";
 import { ColumnPlacement } from "../utils/ColumnPlacement";
-import BeamMeasurement from "./BeamMeasurement";
-import PurlinScalePlacement from "./PurlinScalePlacement";
 
 const Canvas = () => {
   const dimensions = useContext(DimensionContext);
@@ -42,6 +44,11 @@ const Canvas = () => {
           <Rafter rafterPosition={dimensions.width / 2 - 50} />
         )}
         <Rafter rafterPosition={dimensions.width - 100} />
+        <RafterScale
+          arrowWidth={dimensions.width}
+          arrowY={dimensions.length}
+        ></RafterScale>
+        <RafterMeasurement measurement={dimensions.length} />
         <DrawPurlin
           noOfPurlins={noOfPurlins}
           initialLength={initialLength}
