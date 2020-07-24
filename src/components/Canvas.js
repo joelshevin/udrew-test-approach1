@@ -29,7 +29,7 @@ const Canvas = () => {
 
   return (
     <div class="container" id="svgcontainter" className={styles.canvas}>
-      <svg width="690" height="840">
+      <svg width="690" height="900">
         <BeamScale
           arrowWidth={dimensions.width}
           arrowY={dimensions.length}
