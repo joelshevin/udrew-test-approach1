@@ -28,8 +28,8 @@ const Canvas = () => {
   } = ColumnPlacement(dimensions.length, dimensions.width);
 
   return (
-    <div class="container" id="svgcontainter" className={styles.canvas}>
-      <svg width="690" height="900">
+    <div class="container" id="svgcontainter">
+      <svg width="800" height="840">
         <BeamScale
           arrowWidth={dimensions.width}
           arrowY={dimensions.length}
