@@ -34,9 +34,9 @@ const RafterScale = () => {
         </marker>
       </defs>
       <line
-        x1={yPosition / 10 + 90}
+        x1={yPosition / 10 + 110}
         y1="10"
-        x2={yPosition / 10 + 90}
+        x2={yPosition / 10 + 110}
         y2={length / 10}
         stroke="#000"
         stroke-width="1"

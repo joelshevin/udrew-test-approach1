@@ -12,7 +12,7 @@ const PurlinMeasurement = ({ measurement, position }) => {
   return (
     <>
       <text x={width + 40} y={position / 2}>
-        {measurementValue}
+        {measurementValue}mm
       </text>
     </>
   );

@@ -10,8 +10,8 @@ const RafterMeasurement = ({ measurement }) => {
 
   return (
     <>
-      <text x={width + 100} y={length / 2}>
-        {measurement}
+      <text x={width + 120} y={length / 2}>
+        {measurement}mm
       </text>
     </>
   );

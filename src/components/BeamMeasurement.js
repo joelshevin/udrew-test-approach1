@@ -11,7 +11,7 @@ const BeamMeasurement = ({ measurement }) => {
   return (
     <>
       <text x={width / 2 - 20} y={length + 40}>
-        {measurement}
+        {measurement}mm
       </text>
     </>
   );
