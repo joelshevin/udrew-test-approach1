@@ -1,18 +1,10 @@
 import React from "react";
+import styles from "./Column.module.css";
 
 export const Column = ({ columnY, columnX }) => {
   return (
     <>
-      <rect
-        x={columnX / 10}
-        y={columnY / 10}
-        z-index="-1"
-        height="10"
-        width="10"
-        stroke="black"
-        stroke-width="1"
-        fill="black"
-      />
+      <rect className={styles.column} x={columnX / 10} y={columnY / 10} />
     </>
   );
 };

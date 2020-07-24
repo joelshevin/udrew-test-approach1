@@ -1,13 +1,17 @@
 import Rafter from "./Rafter";
 import Beam from "./Beam";
 import Column from "./Column";
+import styles from "./Canvas.module.css";
+import Material from "./Material";
+import BeamScale from "./BeamScale";
 
 import React, { useContext } from "react";
 import { DimensionContext } from "../Carport";
 import { DrawPurlin } from "./DrawPurlin";
 import { CalculatePurlins } from "../utils/CalculatePurlins";
 import { ColumnPlacement } from "../utils/ColumnPlacement";
-import Material from "./Material";
+import BeamMeasurement from "./BeamMeasurement";
+import PurlinScalePlacement from "./PurlinScalePlacement";
 
 const Canvas = () => {
   const dimensions = useContext(DimensionContext);
@@ -23,18 +27,14 @@ const Canvas = () => {
     column4X,
   } = ColumnPlacement(dimensions.length, dimensions.width);
 
-  console.log(column1Y);
-  console.log(column1X);
-  console.log(column2Y);
-  console.log(column2X);
-  console.log(column3Y);
-  console.log(column3X);
-  console.log(column4Y);
-  console.log(column4X);
-
   return (
-    <div class="container" id="svgcontainter">
-      <svg width="650" height="810">
+    <div class="container" id="svgcontainter" className={styles.canvas}>
+      <svg width="690" height="840">
+        <BeamScale
+          arrowWidth={dimensions.width}
+          arrowY={dimensions.length}
+        ></BeamScale>
+        <BeamMeasurement measurement={dimensions.width} />
         <Beam beamPosition={0} />
         <Beam beamPosition={dimensions.length} />
         <Rafter rafterPosition={0} />
@@ -46,6 +46,12 @@ const Canvas = () => {
           noOfPurlins={noOfPurlins}
           initialLength={initialLength}
           width={dimensions.width}
+        />
+        <PurlinScalePlacement
+          noOfPurlins={noOfPurlins}
+          initialLength={initialLength}
+          width={dimensions.width}
+          length={dimensions.length}
         />
         <Column columnY={column1Y} columnX={column1X} />
         <Column columnY={column2Y} columnX={column2X - 100} />

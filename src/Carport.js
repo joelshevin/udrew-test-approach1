@@ -37,6 +37,7 @@ export const Carport = () => {
         </div>
         <div class="column" className={styles.sliders}>
           <Slider discrete="true" min={5850} max={8000} onInput={lengthInput} />
+          {length}
         </div>
       </div>
       <div class="row">
@@ -45,7 +46,9 @@ export const Carport = () => {
         </div>
         <div class="column" className={styles.sliders}>
           <Slider discrete="true" min={3500} max={6500} onInput={widthInput} />
+          {width}
         </div>
+        <div class="column" className={styles.sliders}></div>
       </div>
     </div>
   );
