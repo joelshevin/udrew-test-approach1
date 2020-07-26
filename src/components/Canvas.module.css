@@ -3,3 +3,7 @@
   justify-content: center;
   align-items: center;
 }
+
+.canvasSvg {
+  transform: translate(150px);
+}

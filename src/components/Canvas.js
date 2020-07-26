@@ -8,6 +8,8 @@ import RafterMeasurement from "./RafterMeasurement";
 import BeamMeasurement from "./BeamMeasurement";
 import PurlinScalePlacement from "./PurlinScalePlacement";
 import RafterScale from "./RafterScale";
+import RafterCallout from "./RafterCallout";
+import ColumnCallout from "./ColumnCallout";
 
 import React, { useContext } from "react";
 import { DimensionContext } from "../Carport";
@@ -31,40 +33,44 @@ const Canvas = () => {
 
   return (
     <div class="container" id="svgcontainter" className={styles.canvas}>
-      <svg width="850" height="840">
-        <BeamScale
-          arrowWidth={dimensions.width}
-          arrowY={dimensions.length}
-        ></BeamScale>
-        <BeamMeasurement measurement={dimensions.width} />
-        <Beam beamPosition={0} />
-        <Beam beamPosition={dimensions.length} />
-        <Rafter rafterPosition={0} />
-        {dimensions.width > 3500 && (
-          <Rafter rafterPosition={dimensions.width / 2 - 50} />
-        )}
-        <Rafter rafterPosition={dimensions.width - 100} />
-        <RafterScale
-          arrowWidth={dimensions.width}
-          arrowY={dimensions.length}
-        ></RafterScale>
-        <RafterMeasurement measurement={dimensions.length} />
-        <DrawPurlin
-          noOfPurlins={noOfPurlins}
-          initialLength={initialLength}
-          width={dimensions.width}
-        />
-        <PurlinScalePlacement
-          noOfPurlins={noOfPurlins}
-          initialLength={initialLength}
-          width={dimensions.width}
-          length={dimensions.length}
-        />
-        <Column columnY={column1Y} columnX={column1X} />
-        <Column columnY={column2Y} columnX={column2X - 100} />
-        <Column columnY={column3Y} columnX={column3X} />
-        <Column columnY={column4Y} columnX={column4X - 100} />
-        <Material width={dimensions.width} length={dimensions.length} />
+      <svg width="1000" height="900">
+        <g class="container" className={styles.canvasSvg}>
+          <BeamScale
+            arrowWidth={dimensions.width}
+            arrowY={dimensions.length}
+          ></BeamScale>
+          <BeamMeasurement measurement={dimensions.width} />
+          <Beam beamPosition={0} />
+          <Beam beamPosition={dimensions.length} />
+          <Rafter rafterPosition={0} />
+          <RafterCallout />
+          {dimensions.width > 3500 && (
+            <Rafter rafterPosition={dimensions.width / 2 - 50} />
+          )}
+          <Rafter rafterPosition={dimensions.width - 100} />
+          <RafterScale
+            arrowWidth={dimensions.width}
+            arrowY={dimensions.length}
+          ></RafterScale>
+          <RafterMeasurement measurement={dimensions.length} />
+          <DrawPurlin
+            noOfPurlins={noOfPurlins}
+            initialLength={initialLength}
+            width={dimensions.width}
+          />
+          <PurlinScalePlacement
+            noOfPurlins={noOfPurlins}
+            initialLength={initialLength}
+            width={dimensions.width}
+            length={dimensions.length}
+          />
+          <Column columnY={column1Y} columnX={column1X} />
+          <Column columnY={column2Y} columnX={column2X - 100} />
+          <Column columnY={column3Y} columnX={column3X} />
+          <Column columnY={column4Y} columnX={column4X - 100} />
+          <ColumnCallout />
+          <Material width={dimensions.width} length={dimensions.length} />
+        </g>
       </svg>
     </div>
   );

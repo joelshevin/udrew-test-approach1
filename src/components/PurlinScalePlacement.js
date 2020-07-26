@@ -1,4 +1,3 @@
-import styles from "./Beam.module.css";
 import PurlinScale from "./PurlinScale";
 
 import React, { useContext } from "react";
@@ -11,9 +10,7 @@ const PurlinScalePlacement = ({
   length,
 }) => {
   const dimensions = useContext(DimensionContext);
-  //const width = dimensions.width;
-  //const yPosition = dimensions.length;
-  //const xPosition = dimensions.width;
+
   let positions = [];
   let scaleCount = noOfPurlins + 1;
   positions[0] = 0;

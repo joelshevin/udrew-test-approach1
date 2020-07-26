@@ -1,7 +1,5 @@
 import React from "react";
 import { Purlin } from "./Purlin";
-import BeamScale from "./BeamScale";
-import PurlinScale from "./PurlinScale";
 
 export const DrawPurlin = ({ noOfPurlins, initialLength, width }) => {
   let lengths = [];

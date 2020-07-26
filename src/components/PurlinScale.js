@@ -1,16 +1,8 @@
-import styles from "./Beam.module.css";
-
 import React, { useContext } from "react";
-import { DimensionContext } from "../Carport";
+
 import PurlinMeasurement from "./PurlinMeasurement";
 
 const PurlinScale = ({ position1, position2, width }) => {
-  const dimensions = useContext(DimensionContext);
-  //const width = dimensions.width;
-  //const yPosition = dimensions.length;
-  //const xPosition = dimensions.width;
-  //let y1 = position;
-  //let y2 = [key + 1];
   if (isNaN(position2)) {
     return <></>;
   }
@@ -20,7 +12,7 @@ const PurlinScale = ({ position1, position2, width }) => {
       <defs>
         <marker
           id="startarrow"
-          markerWidth="10"
+          borderWidth="10"
           markerHeight="7"
           refX="10"
           refY="3.5"

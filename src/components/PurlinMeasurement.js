@@ -1,5 +1,3 @@
-import styles from "./Beam.module.css";
-
 import React, { useContext } from "react";
 import { DimensionContext } from "../Carport";
 
