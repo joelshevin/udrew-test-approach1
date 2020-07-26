@@ -23,10 +23,10 @@ const ColumnCallout = () => {
         </defs>
 
         <line
-          x1="0"
-          y1={length / 10 - 50}
-          x2="-100"
-          y2={length / 10 - 100}
+          x1={width / 10 - 25}
+          y1={length / 10 + 10}
+          x2={width / 10 - 100}
+          y2={length / 10 + 60}
           stroke="#000"
           stroke-width="1"
           marker-start="url(#startarrow)"
