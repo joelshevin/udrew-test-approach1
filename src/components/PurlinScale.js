@@ -1,9 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 
 import PurlinMeasurement from "./PurlinMeasurement";
 
 const PurlinScale = ({ position1, position2, width }) => {
   if (isNaN(position2)) {
+    return <></>;
+  }
+
+  if (position2 - position1 <= 150) {
     return <></>;
   }
 

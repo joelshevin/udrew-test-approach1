@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { DimensionContext } from "../Carport";
 
+import styles from "./Callout.module.css";
+
 const ColumnCallout = () => {
   const dimensions = useContext(DimensionContext);
   const length = dimensions.length;
@@ -10,63 +12,42 @@ const ColumnCallout = () => {
     <>
       <g>
         <defs>
-          <marker
-            id="startarrow"
-            markerWidth="10"
-            markerHeight="7"
-            refX="10"
-            refY="3.5"
-            orient="auto"
-          >
-            <polygon points="10 0, 10 7, 0 3.5" fill="red" />
+          <marker id="startarrow" className={styles.startArrow}>
+            <polygon className={styles.polygon} />
           </marker>
         </defs>
 
         <line
+          className={styles.line}
           x1={width / 10 - 25}
           y1={length / 10 + 10}
           x2={width / 10 - 100}
           y2={length / 10 + 60}
-          stroke="#000"
-          stroke-width="1"
-          marker-start="url(#startarrow)"
         ></line>
 
         <circle
+          className={styles.markerCircle}
           cx={width / 10 - 5}
           cy={length / 10 + 5}
-          r="20"
-          stroke="black"
-          stroke-width="1"
-          fill="white"
-          fill-opacity="0.4"
         ></circle>
 
         <circle
+          className={styles.callOutCircle}
           cx={width / 10 - 100}
           cy={length / 10 + 60}
-          r="30"
-          stroke="black"
-          stroke-width="1"
-          fill="white"
         ></circle>
 
         <text
+          className={styles.callOutTopText}
           x={width / 10 - 100}
-          y={length / 10 + 55}
-          text-anchor="middle"
-          ominant-baseline="central"
-          fill="blue"
-          text-decoration="underline"
+          y={length / 10 + 50}
         >
           SD1
         </text>
         <text
+          className={styles.callOutBottomText}
           x={width / 10 - 100}
-          y={length / 10 + 75}
-          text-anchor="middle"
-          ominant-baseline="central"
-          fill="blue"
+          y={length / 10 + 70}
         >
           S004
         </text>

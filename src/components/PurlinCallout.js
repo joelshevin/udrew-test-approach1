@@ -3,9 +3,9 @@ import { DimensionContext } from "../Carport";
 
 import styles from "./Callout.module.css";
 
-const RafterCallout = () => {
+const PurlinCallout = ({ yPosition }) => {
   const dimensions = useContext(DimensionContext);
-  const length = dimensions.length;
+  const width = dimensions.width;
 
   return (
     <>
@@ -18,25 +18,35 @@ const RafterCallout = () => {
 
         <line
           className={styles.line}
-          x1="0"
-          y1={length / 10 - 50}
-          x2="-100"
-          y2={length / 10 - 100}
+          x1={width / 10 - 25}
+          y1={yPosition / 10 + 10}
+          x2={width / 10 - 100}
+          y2={yPosition / 10 + 60}
         ></line>
 
         <circle
-          className={styles.callOutCircle}
-          cx="-100"
-          cy={length / 10 - 100}
+          className={styles.markerCircle}
+          cx={width / 10 - 5}
+          cy={yPosition / 10 + 5}
         ></circle>
 
-        <text className={styles.callOutTopText} x="-100" y={length / 10 - 110}>
-          SD1
+        <circle
+          className={styles.callOutCircle}
+          cx={width / 10 - 100}
+          cy={yPosition / 10 + 60}
+        ></circle>
+
+        <text
+          className={styles.callOutTopText}
+          x={width / 10 - 100}
+          y={yPosition / 10 + 50}
+        >
+          SD2
         </text>
         <text
           className={styles.callOutBottomText}
-          x="-100"
-          y={length / 10 - 90}
+          x={width / 10 - 100}
+          y={yPosition / 10 + 70}
         >
           S004
         </text>
@@ -45,4 +55,4 @@ const RafterCallout = () => {
   );
 };
 
-export default RafterCallout;
+export default PurlinCallout;

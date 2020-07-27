@@ -1,3 +1,9 @@
+import React, { useContext } from "react";
+import { DimensionContext } from "../Carport";
+import { DrawPurlin } from "./DrawPurlin";
+import { CalculatePurlins } from "../utils/CalculatePurlins";
+import { ColumnPlacement } from "../utils/ColumnPlacement";
+
 import Rafter from "./Rafter";
 import Beam from "./Beam";
 import Column from "./Column";
@@ -10,12 +16,6 @@ import PurlinScalePlacement from "./PurlinScalePlacement";
 import RafterScale from "./RafterScale";
 import RafterCallout from "./RafterCallout";
 import ColumnCallout from "./ColumnCallout";
-
-import React, { useContext } from "react";
-import { DimensionContext } from "../Carport";
-import { DrawPurlin } from "./DrawPurlin";
-import { CalculatePurlins } from "../utils/CalculatePurlins";
-import { ColumnPlacement } from "../utils/ColumnPlacement";
 
 const Canvas = () => {
   const dimensions = useContext(DimensionContext);
@@ -58,6 +58,7 @@ const Canvas = () => {
             initialLength={initialLength}
             width={dimensions.width}
           />
+
           <PurlinScalePlacement
             noOfPurlins={noOfPurlins}
             initialLength={initialLength}

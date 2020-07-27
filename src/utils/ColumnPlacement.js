@@ -1,5 +1,3 @@
-import React, { useContext } from "react";
-
 export const ColumnPlacement = (length, width) => {
   let column1Y = 0;
   let column1X = 0;

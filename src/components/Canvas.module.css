@@ -5,5 +5,5 @@
 }
 
 .canvasSvg {
-  transform: translate(150px);
+  transform: translate(150px, 10px);
 }
