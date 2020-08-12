@@ -2,7 +2,7 @@ import React from "react";
 import PurlinCallout from "./PurlinCallout";
 import { Purlin } from "./Purlin";
 
-export const DrawPurlin = ({ noOfPurlins, initialLength, width }) => {
+const PurlinGroup = ({ noOfPurlins, initialLength, width }) => {
   let lengths = [];
 
   for (let i = 0; i <= noOfPurlins; i++) {
@@ -19,17 +19,16 @@ export const DrawPurlin = ({ noOfPurlins, initialLength, width }) => {
 
   if (initialLength <= 150) {
     lengths[noOfPurlins] = lengths[noOfPurlins] + initialLength * 2;
-    console.log(lengths[noOfPurlins]);
   }
 
   return (
-    <>
+    <g id="purlin">
       {lengths.map((length, index) => (
-        <>
-          <Purlin key={index} yPosition={length} width={width} />
-        </>
+        <Purlin key={index} yPosition={length} width={width} />
       ))}
-      <PurlinCallout yPosition={lengths[noOfPurlins - 1]} />
-    </>
+      <PurlinCallout yPosition={lengths[noOfPurlins - 1]} width={width} />
+    </g>
   );
 };
+
+export default PurlinGroup;

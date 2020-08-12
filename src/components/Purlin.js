@@ -6,9 +6,13 @@ export const Purlin = ({ yPosition, width }) => {
     return <></>;
   }
 
+  const position = {
+    transform: `translate(0px, ${yPosition / 10}px)`,
+  };
+
   return (
     <>
-      <rect className={styles.purlin} y={yPosition / 10} width={width / 10} />
+      <rect className={styles.purlin} style={position} width={width / 10} />
     </>
   );
 };

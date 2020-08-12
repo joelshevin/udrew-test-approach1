@@ -1,17 +1,12 @@
 import styles from "./Beam.module.css";
+import React from "react";
 
-import React, { useContext } from "react";
-import { DimensionContext } from "../Carport";
+const Beam = ({ beamPosition, width }) => {
+  const position = {
+    transform: `translate(0px, ${beamPosition / 10}px)`,
+  };
 
-const Beam = (props) => {
-  const dimensions = useContext(DimensionContext);
-  const width = dimensions.width / 10;
-
-  return (
-    <>
-      <rect className={styles.beam} y={props.beamPosition / 10} width={width} />
-    </>
-  );
+  return <rect className={styles.beam} width={width / 10} style={position} />;
 };
 
 export default Beam;

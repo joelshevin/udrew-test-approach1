@@ -1,17 +1,13 @@
-import React, { useContext } from "react";
-import { DimensionContext } from "../Carport";
+import React from "react";
 
 import styles from "./Callout.module.css";
 
-const PurlinCallout = ({ yPosition }) => {
-  const dimensions = useContext(DimensionContext);
-  const width = dimensions.width;
-
+const PurlinCallout = ({ yPosition, width }) => {
   return (
     <>
       <g>
         <defs>
-          <marker id="startarrow" className={styles.startArrow}>
+          <marker id="purlinCalloutStartarrow" className={styles.startArrow}>
             <polygon className={styles.polygon} />
           </marker>
         </defs>

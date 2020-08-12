@@ -1,16 +1,13 @@
-import React, { useContext } from "react";
-import { DimensionContext } from "../Carport";
+import React from "react";
 
-const BeamMeasurement = ({ measurement }) => {
-  const dimensions = useContext(DimensionContext);
-  const length = dimensions.length / 10;
-  const width = dimensions.width / 10;
+const BeamMeasurement = ({ measurement, length, width }) => {
+  const position = {
+    transform: `translate(${width / 2 - 20}px, ${length + 40}px)`,
+  };
 
   return (
     <>
-      <text x={width / 2 - 20} y={length + 40}>
-        {measurement}mm
-      </text>
+      <text style={position}>{measurement}mm</text>
     </>
   );
 };

@@ -1,13 +1,7 @@
-import React, { useContext } from "react";
-import { DimensionContext } from "../Carport";
-
+import React from "react";
 import styles from "./Callout.module.css";
 
-const ColumnCallout = () => {
-  const dimensions = useContext(DimensionContext);
-  const length = dimensions.length;
-  const width = dimensions.width;
-
+const ColumnCallout = ({ length, width }) => {
   return (
     <>
       <g>

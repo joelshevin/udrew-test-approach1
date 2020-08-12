@@ -1,12 +1,7 @@
-import React, { useContext } from "react";
-import { DimensionContext } from "../Carport";
-
+import React from "react";
 import styles from "./Callout.module.css";
 
-const RafterCallout = () => {
-  const dimensions = useContext(DimensionContext);
-  const length = dimensions.length;
-
+const RafterCallout = ({ length }) => {
   return (
     <>
       <g>

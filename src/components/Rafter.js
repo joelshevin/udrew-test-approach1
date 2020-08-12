@@ -1,18 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 import styles from "./Rafter.module.css";
-import { DimensionContext } from "../Carport";
 
-const Rafter = (props) => {
-  const dimensions = useContext(DimensionContext);
-  const length = dimensions.length / 10;
-
+const Rafter = ({ rafterPosition, length }) => {
+  const position = {
+    transform: `translate(${rafterPosition / 10}px, 0px)`,
+  };
   return (
     <>
-      <rect
-        className={styles.rafter}
-        height={length}
-        x={props.rafterPosition / 10}
-      />
+      <rect className={styles.rafter} height={length / 10} style={position} />
     </>
   );
 };

@@ -7,3 +7,13 @@
 .canvasSvg {
   transform: translate(150px, 10px);
 }
+
+.title1 {
+  padding-left: 10px;
+  font-family: sans-serif;
+}
+
+.sliders {
+  padding-left: 15px;
+  width: 40%;
+}

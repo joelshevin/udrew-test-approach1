@@ -1,5 +1,4 @@
 import PurlinScale from "./PurlinScale";
-
 import React from "react";
 
 const PurlinScalePlacement = ({
